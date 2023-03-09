@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      expirience: {
+      experience: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },

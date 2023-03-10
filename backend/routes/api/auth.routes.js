@@ -5,7 +5,6 @@ const { Admin } = require('../../db/models');
 authRouter.get('/admin', async (req, res) => {
   const { admin } = res.locals;
   if (admin) {
-    console.log(123);
     res.json({
       isLoggedIn: true,
       admin: {

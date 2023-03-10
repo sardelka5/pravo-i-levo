@@ -1,9 +1,7 @@
 import Admin from './types/Admin';
 // import AuthAdmin from './types/AuthAdmin';
 
-export async function admin(): Promise<
-  { isLoggedIn: true; admin: Admin } | { isLoggedIn: false }
-> {
+export async function admin(): Promise<{ isLoggedIn: true; admin: Admin }> {
   return (await fetch('/api/auth/admin')).json();
 }
 

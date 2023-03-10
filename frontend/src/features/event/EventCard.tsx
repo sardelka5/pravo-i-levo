@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { RootState } from '../../storeZ';
+import { RootState } from '../../store';
 
 function EventCard(): JSX.Element {
   const nav = useNavigate();
@@ -26,7 +26,7 @@ function EventCard(): JSX.Element {
           </div>
         ))}
       <button type="button" className="btnBack" onClick={() => nav(-1)}>
-       Назад
+        Назад
       </button>
     </div>
   );

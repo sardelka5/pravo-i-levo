@@ -15,12 +15,8 @@ import AdminEvents from '../features/adminEvents/AdminEvents';
 import AdminLawyers from '../features/adminLawyers/AdminLawyers';
 import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
-
-import { useAppDispatch } from '../storeZ';
-
 import { loadLawyers } from '../features/lawyers/lawyerSlice';
 import { useAppDispatch } from '../store';
-
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();

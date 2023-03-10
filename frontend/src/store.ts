@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import adminReducer from './features/admin/authSlice';
 import feedbackReducer from './features/lawyerProfile/feedbackSlice';
 import lawyersReducer from './features/lawyers/lawyerSlice';
+import eventSlice from './features/event/eventSlice';
 
 const store = configureStore({
   reducer: {
     admin: adminReducer,
     feedback: feedbackReducer,
     lawyers: lawyersReducer,
+    eventState: eventSlice,
   },
 });
 

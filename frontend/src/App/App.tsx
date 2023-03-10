@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -14,8 +14,17 @@ import AdminEvents from '../features/adminEvents/AdminEvents';
 import AdminLawyers from '../features/adminLawyers/AdminLawyers';
 import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
+import { loadLawyers } from '../features/lawyers/lawyerSlice';
+import { useAppDispatch } from '../storeLaw';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(): JSX.Element {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadLawyers());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route element={<Layout />}>

@@ -8,6 +8,10 @@ const getAdmin = require('../middlewares/getAdmin');
 function expressConfig(app) {
   // плагины - миддлварки
 
+  app.use(session(sessionConfig));
+
+  app.use(express.static('public'));
+
   // логирование запросов
   app.use(morgan('dev'));
 

@@ -13,6 +13,7 @@ import AdminEvents from '../features/adminEvents/AdminEvents';
 import AdminLawyers from '../features/adminLawyers/AdminLawyers';
 import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(): JSX.Element {
   return (

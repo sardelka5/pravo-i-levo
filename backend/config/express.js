@@ -9,6 +9,8 @@ function expressConfig(app) {
 
   app.use(session(sessionConfig));
 
+  app.use(express.static('public'));
+
   // логирование запросов
   app.use(morgan('dev'));
 

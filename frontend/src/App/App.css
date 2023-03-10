@@ -1,41 +1,53 @@
-.App {
-  text-align: center;
+* {
+  font-family: 'Montserrat';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: #e5e5e5 !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-main {
+  width: 100vw;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container-header {
+  position: relative;
+  background-color: #e5e5e5 !important;
+}
+.header-text {
+  position: absolute;
+  top: 100px;
+  font-size: 40px;
+}
+.container-footer {
+  background-color: #e5e5e5 !important;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.container-footer-colunm {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
-
-@keyframes App-logo-spin {
-  0% {
-    transform: skew(0deg) translateX(-200px);
-  }
-  50% {
-    transform: skew(0deg) translateX(200px);
-  }
-  100% {
-    transform: skew(0deg) translateX(-200px);
-  }
+.footer-img {
+  width: 40vh;
+}
+.footer-text {
+  font-size: 24px;
+}
+.button-orange {
+  background-color: #f28b64 !important;
+  border-color: #f28b64 !important;
+  font-weight: 500 !important;
+}
+.button-orange:hover {
+  background-color: #9a634f !important;
+  border-color: #9a634f !important;
+}
+.button-blue {
+  background-color: #5290ea !important;
+  border-color: #5290ea !important;
+  font-weight: 500 !important;
+}
+.button-blue:hover {
+  background-color: #3d6299 !important;
+  border-color: #3d6299 !important;
 }

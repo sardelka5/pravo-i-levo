@@ -7,7 +7,10 @@ const app = express();
 
 expressConfig(app);
 
+const lawyerRoute = require('./routes/lawyer.route')
+
 // подключаем маршрутизацию
+app.use('/api/lawyers', lawyerRoute)
 app.use('/api/feedback', feedbackRouter);
 
 // eslint-disable-next-line prefer-destructuring

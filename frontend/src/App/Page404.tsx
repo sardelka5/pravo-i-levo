@@ -1,7 +1,12 @@
 import React from 'react';
+import { Container, Image } from 'react-bootstrap';
 
 function Page404(): JSX.Element {
-  return <div>Page is not found: 404</div>;
+  return (
+    <Container>
+      <Image className="error" src="/SVG/404error.jpg" />
+    </Container>
+  );
 }
 
 export default Page404;

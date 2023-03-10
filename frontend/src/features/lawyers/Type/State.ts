@@ -1,6 +1,7 @@
-import type Lawyer from './Lawyer'
+import type Lawyer from './Lawyer';
 
 type State = {
-    lawyersList: Lawyer[];
-}
-export default State
+  lawyersList: Lawyer[];
+  oneLawyer: Lawyer;
+};
+export default State;

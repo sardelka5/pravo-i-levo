@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const session = require('express-session');
 const sessionConfig = require('./sessionConfig');
@@ -19,7 +20,8 @@ function expressConfig(app) {
 
   // миддлварка для отправки фечей с клиента в формате JSON
   app.use(express.json()); // тело запроса, распарсить => req.body
-
+  app.use(cookieParser());
+  app.use(session(sessionConfig));
   // настраиваем статические файлы из папки public
   // app.use(express.static(path.join(__dirname, '../public')));
 

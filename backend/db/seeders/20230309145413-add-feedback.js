@@ -56,6 +56,21 @@ module.exports = {
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
       },
+
+      {
+        lawyer_id: 5,
+        accepted: false,
+        content: 'Test',
+        full_name: 'Nikita',
+        date: new Date('2023-03-28T00:00:00.000+0000'),
+      },
+      {
+        lawyer_id: 6,
+        accepted: false,
+        content: 'Test',
+        full_name: 'Nikita',
+        date: new Date('2023-03-28T00:00:00.000+0000'),
+      },
     ]);
   },
 

@@ -2,9 +2,9 @@ import React, { Component, useCallback, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useAppDispatch } from '../../storeN';
-import { login } from './authSlice';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../store';
+import { login } from './authSlice';
 
 function Authorization(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -25,17 +25,15 @@ function Authorization(): JSX.Element {
     [],
   );
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(
-    async (event) => {
-      event.preventDefault();
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
 
-      const dispathResult = await dispatch(login({ email, password }));
+    dispatch(login({ email, password })).then((dispathResult) => {
       if (login.fulfilled.match(dispathResult)) {
         navigate('/admin/event');
       }
-    },
-    [dispatch, email, password],
-  );
+    });
+  };
 
   return (
     <Container>

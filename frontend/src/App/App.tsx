@@ -15,8 +15,7 @@ import AdminLawyers from '../features/adminLawyers/AdminLawyers';
 import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
 import { loadLawyers } from '../features/lawyers/lawyerSlice';
-import { useAppDispatch } from '../storeLaw';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAppDispatch } from '../store';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();

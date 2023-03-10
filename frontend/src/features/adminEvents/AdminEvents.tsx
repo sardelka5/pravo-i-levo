@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../storeN';
+import { RootState, useAppDispatch } from '../../store';
 
 function AdminEvents(): JSX.Element {
   const dispatch = useAppDispatch();

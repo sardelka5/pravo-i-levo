@@ -1,5 +1,5 @@
 import Admin from './types/Admin';
-import AuthAdmin from './types/AuthAdmin';
+// import AuthAdmin from './types/AuthAdmin';
 
 export async function admin(): Promise<
   { isLoggedIn: true; admin: Admin } | { isLoggedIn: false }
@@ -7,10 +7,10 @@ export async function admin(): Promise<
   return (await fetch('/api/auth/admin')).json();
 }
 
-export async function auth(admin: Admin): Promise<Admin> {
+export async function auth(admin1: Admin): Promise<Admin> {
   const result = await fetch('/api/auth/login', {
     method: 'POST',
-    body: JSON.stringify(admin),
+    body: JSON.stringify(admin1),
     headers: {
       'Content-Type': 'application/json',
     },

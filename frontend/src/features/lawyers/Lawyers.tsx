@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../storeLaw';
+import { RootState, useAppDispatch } from '../../store';
 import { loadLawyers } from './lawyerSlice';
 import OneLawyers from './OneLawyers';
 
@@ -18,7 +18,7 @@ function Lawyers(): JSX.Element {
   return (
     <div>
       {lawyersList.map((lawyer) => (
-        <OneLawyers key={lawyer.id} oneLawyers={lawyer}/>
+        <OneLawyers key={lawyer.id} oneLawyers={lawyer} />
       ))}
     </div>
   );

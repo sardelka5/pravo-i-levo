@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Feedback } = require('../db/models');
+const { Feedback } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   const feedback = await Feedback.findAll({
@@ -12,3 +12,5 @@ router.get('/', async (req, res) => {
 
   res.json(feedback);
 });
+
+module.exports = router;

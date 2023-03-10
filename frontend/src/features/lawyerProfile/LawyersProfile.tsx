@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../storeFeedback';
+import { RootState, useAppDispatch } from '../../store';
 import { loadFeedback } from './feedbackSlice';
 
 function LawyerProfile(): JSX.Element {

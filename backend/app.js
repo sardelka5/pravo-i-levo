@@ -6,9 +6,10 @@ const app = express();
 
 expressConfig(app);
 
+const lawyerRoute = require('./routes/lawyer.route')
 // подключаем маршрутизацию
 // app.use('/api/notes', notesRouter);
-
+app.use('/api/lawyers', lawyerRoute)
 // eslint-disable-next-line prefer-destructuring
 const PORT = process.env.PORT;
 

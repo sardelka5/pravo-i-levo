@@ -51,3 +51,6 @@
   background-color: #3d6299 !important;
   border-color: #3d6299 !important;
 }
+.error {
+  width: 100vh;
+}

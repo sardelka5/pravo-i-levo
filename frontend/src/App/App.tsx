@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Main from '../features/main/Main';
-import Event from '../features/event/Event';
+import { loadEvents } from '../features/event/eventSlice';
+import EventCard from '../features/event/EventCard';
 import Layout from './Layout';
 import Page404 from './Page404';
 import Lawyers from '../features/lawyers/Lawyers';
@@ -13,13 +14,22 @@ import AdminEvents from '../features/adminEvents/AdminEvents';
 import AdminLawyers from '../features/adminLawyers/AdminLawyers';
 import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
+import { useAppDispatch } from '../storeZ';
 
 function App(): JSX.Element {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadEvents());
+  }, [dispatch]);
+
+
+
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Main />} />
-        <Route path="/event/:id" element={<Event />} />
+        <Route path="/events/:id" element={<EventCard />} />
         <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/lawyers/:id" element={<LawyerProfile />} />
         <Route path="*" element={<Page404 />} />

@@ -6,8 +6,11 @@ const app = express();
 
 expressConfig(app);
 
+const eventRoute = require("./routes/event.route");
+
 // подключаем маршрутизацию
 // app.use('/api/notes', notesRouter);
+app.use("/api/event", eventRoute);
 
 // eslint-disable-next-line prefer-destructuring
 const PORT = process.env.PORT;

@@ -16,12 +16,14 @@ import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
 import { loadLawyers } from '../features/lawyers/lawyerSlice';
 import { useAppDispatch } from '../store';
+import { getUser } from '../features/admin/authSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(loadLawyers());
+    dispatch(getUser());
   }, [dispatch]);
 
   return (

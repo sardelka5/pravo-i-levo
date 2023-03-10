@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './index.css';
 import App from './App/App';
+import store from './storeZ';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -12,9 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   </Provider>,
   // </React.StrictMode>,
 );

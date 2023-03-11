@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Main from '../features/main/Main';
-import { loadEvents } from '../features/event/eventSlice';
 import EventCard from '../features/event/EventCard';
 import Layout from './Layout';
 import Page404 from './Page404';
@@ -15,7 +14,6 @@ import AdminEvents from '../features/adminEvents/AdminEvents';
 import AdminLawyers from '../features/adminLawyers/AdminLawyers';
 import AdminFeedback from '../features/adminFeedback/AdminFeedback';
 import LayoutAdmin from './LayoutAdmin';
-import { loadLawyers } from '../features/lawyers/lawyerSlice';
 import { useAppDispatch } from '../store';
 import { getUser } from '../features/admin/authSlice';
 
@@ -23,8 +21,6 @@ function App(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(loadEvents());
-    dispatch(loadLawyers());
     dispatch(getUser());
   }, [dispatch]);
 

@@ -2,9 +2,9 @@ const router = require('express').Router();
 const TelegramBot = require('node-telegram-bot-api');
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
   try {
-    const { inputName, inputPhone, inputEmail, inputAbout } = req.body.anceta;
+    const { inputName, inputPhone, inputEmail, inputAbout } =
+      req.body.applicationForm;
 
     const bot = new TelegramBot(
       '6115334592:AAH5Om-s3LfKPpxqLGwNLojT32CJHzNtTEY',

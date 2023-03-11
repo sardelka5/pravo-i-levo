@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { Container, Image, Card, Button } from 'react-bootstrap';
-import FormForLawyer from '../features/lawyers/FormForLawyer';
-import * as api from '../features/lawyers/api';
- 
+import FormForLawyer from '../lawyers/FormForLawyer';
+import * as api from '../lawyers/api';
+
 function Footer(): JSX.Element {
   const [showForm, setShowForm] = useState(false);
 
@@ -13,7 +13,6 @@ function Footer(): JSX.Element {
   const handlerForm: React.FormEventHandler<HTMLFormElement> = useCallback(
     (event) => {
       event.preventDefault();
-     
     },
     [],
   );
@@ -38,7 +37,7 @@ function Footer(): JSX.Element {
           Заполнить анкету
         </Button>
         {showForm && (
-          <FormForLawyer setShowForm={setShowForm} onSubmitForm={handlerForm}  />
+          <FormForLawyer setShowForm={setShowForm} onSubmitForm={handlerForm} />
         )}
       </Container>
     </Container>

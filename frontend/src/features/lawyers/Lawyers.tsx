@@ -11,7 +11,6 @@ function Lawyers(): JSX.Element {
   const lawyersList = useSelector(
     (state: RootState) => state.lawyers.lawyersList,
   );
-  
 
   useEffect(() => {
     dispatch(loadLawyers());

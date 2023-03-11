@@ -50,7 +50,7 @@ function Carousel(): JSX.Element {
             alt="First slide"
           />
           <h3>{`${event.title}`}</h3>
-          <p>{`${event.date}`}</p>
+          <p>{`${event.date.slice(0,10)}`}</p>
         </SwiperSlide>
       ))}
     </Swiper>

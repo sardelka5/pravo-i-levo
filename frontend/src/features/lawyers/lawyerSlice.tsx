@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import State from './Type/State';
 import * as api from './api';
-import { Anceta } from './Type/Anceta';
+import { ApplicationForm } from './Type/ApplicationForm';
 
 const initialState: State = {
   lawyersList: [],
@@ -23,10 +23,13 @@ export const loadLawyers = createAsyncThunk('lawyers/loadLawyers', async () => {
   return lawyers;
 });
 
-export const loadTg = createAsyncThunk('lawyers/tg', async (anceta:Anceta) => {
-  const tg = await api.tgLawyers(anceta);
-  return tg;
-});
+export const loadTg = createAsyncThunk(
+  'lawyers/tg',
+  async (applicationForm: ApplicationForm) => {
+    const tg = await api.tgLawyers(applicationForm);
+    return tg;
+  },
+);
 
 export const loadOneLawyer = createAsyncThunk(
   'lawyers/loadOneLawyer',
@@ -36,7 +39,6 @@ export const loadOneLawyer = createAsyncThunk(
   },
 );
 
-
 const lawyersSlice = createSlice({
   name: 'lawyers',
   initialState,
@@ -45,8 +47,10 @@ const lawyersSlice = createSlice({
     builder.addCase(loadLawyers.fulfilled, (state, action) => {
       state.lawyersList = action.payload;
     });
+    builder.addCase(loadOneLawyer.fulfilled, (state, action) => {
+      state.oneLawyer = action.payload;
+    });
   },
 });
-
 
 export default lawyersSlice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Carousel from './Carousel/carousel';
-import AboutUs from '../../App/AboutUs';
 import { Container } from 'react-bootstrap';
+import Carousel from './Carousel/carousel';
+import AboutUs from './AboutUs';
 
 function Main(): JSX.Element {
   return (

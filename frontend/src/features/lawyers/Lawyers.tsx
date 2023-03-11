@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import { loadLawyers } from './lawyerSlice';
 import OneLawyers from './OneLawyers';
@@ -10,7 +10,6 @@ function Lawyers(): JSX.Element {
   const lawyersList = useSelector(
     (state: RootState) => state.lawyers.lawyersList,
   );
-  console.log(lawyersList);
 
   useEffect(() => {
     dispatch(loadLawyers());

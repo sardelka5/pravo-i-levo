@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Event } = require("../db/models");
 
-router.get("/", async (req, res) => {
-  console.log('--------------');
+router
+.get("/", async (req, res) => {
+
   try {
     const events = await Event.findAll();
     res.status(200).json(events);
@@ -10,6 +11,6 @@ router.get("/", async (req, res) => {
     console.log(message);
     res.status(500).json(message);
   }
-});
+})
 
 module.exports = router;

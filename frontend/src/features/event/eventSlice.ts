@@ -11,6 +11,11 @@ const initialState: State = {
   export const loadEvents = createAsyncThunk('allevents', () =>
   apiEvents.loadEvents()
 );
+
+
+
+
+
 const eventSlice = createSlice({
     name: 'event',
     initialState,

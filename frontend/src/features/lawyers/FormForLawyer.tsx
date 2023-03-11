@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useAppDispatch } from '../../store';
+
+import { loadTg } from './lawyerSlice';
 
 function FormForLawyer({
+  setShowForm,
   onSubmitForm,
-  onClose,
+ 
 }: {
+  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
   onSubmitForm: React.FormEventHandler<HTMLFormElement>;
-  onClose: () => void;
+  
 }): JSX.Element {
   const [inputName, setInputName] = useState('');
   const [inputSpeciality, setInputSpeciality] = useState('');
   const [inputPhone, setInputPhone] = useState('');
   const [inputEmail, setInputEmail] = useState('');
   const [inputAbout, setInputAbout] = useState('');
-
+  const dispatch = useAppDispatch();
   const handlerName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputName(e.target.value);
   };
@@ -34,8 +39,21 @@ function FormForLawyer({
     setInputAbout(e.target.value);
   };
 
+  const telegram: React.FormEventHandler<HTMLFormElement> = (): void => {
+    dispatch(
+      loadTg({
+        inputName,
+        inputSpeciality,
+        inputPhone,
+        inputAbout,
+        inputEmail,
+      }),
+    );
+    setShowForm((p: boolean) => !p);
+  };
+
   return (
-    <Form onSubmit={onSubmitForm}>
+    <Form onSubmit={telegram}>
       <Form.Control
         value={inputName}
         onChange={handlerName}
@@ -71,7 +89,7 @@ function FormForLawyer({
         as="textarea"
         rows={3}
       />
-      <Button className="button-blue" type="submit" onClick={onClose}>
+      <Button className="button-blue" type="submit" >
         Отправить анкету
       </Button>
     </Form>

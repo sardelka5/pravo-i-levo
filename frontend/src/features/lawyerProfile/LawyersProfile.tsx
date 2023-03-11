@@ -4,23 +4,23 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RootState, useAppDispatch } from '../../store';
 import { loadOneLawyer } from '../lawyers/lawyerSlice';
+import FeedbackForm from './FeedbackForm';
 import { loadFeedback } from './feedbackSlice';
 
 function LawyerProfile(): JSX.Element {
   const { id } = useParams();
 
   const dispatch = useAppDispatch();
+
   const feedbackList = useSelector(
     (state: RootState) => state.feedback.feedbackList,
   );
 
   const oneLawyer = useSelector((state: RootState) => state.lawyers.oneLawyer);
 
-  console.log(oneLawyer);
-
   useEffect(() => {
-    dispatch(loadFeedback());
     dispatch(loadOneLawyer(Number(id)));
+    dispatch(loadFeedback(Number(id)));
   }, [dispatch, id]);
 
   return (
@@ -30,6 +30,8 @@ function LawyerProfile(): JSX.Element {
         <div key={el.id}>{el.content}</div>
       ))}
       {oneLawyer.full_name}
+
+      <FeedbackForm />
     </Container>
   );
 }

@@ -12,6 +12,8 @@ module.exports = {
           'Никакой транспорт не будет попутным, если не знаешь, куда идти.',
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
 
       {
@@ -20,6 +22,8 @@ module.exports = {
         content: 'Если человек не понимает твои мечты – он не твой человек.',
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
 
       {
@@ -28,6 +32,8 @@ module.exports = {
         content: 'Невозможно победить того, кто не сдается.',
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
 
       {
@@ -37,6 +43,8 @@ module.exports = {
           'Если тебе тяжело, значит ты поднимаешься в гору. Если тебе легко, значит ты летишь в пропасть.',
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
 
       {
@@ -46,6 +54,8 @@ module.exports = {
           'Не стоит принимать доброту за слабость, грубость за силу, а подлость за умение жить.',
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
 
       {
@@ -55,6 +65,8 @@ module.exports = {
           'Ты моешь сказать всё, что угодно, но твои действия показывают твоё настоящее отношение.',
         full_name: 'Павел',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
 
       {
@@ -63,6 +75,8 @@ module.exports = {
         content: 'Test',
         full_name: 'Nikita',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
       {
         lawyer_id: 6,
@@ -70,6 +84,8 @@ module.exports = {
         content: 'Test',
         full_name: 'Nikita',
         date: new Date('2023-03-28T00:00:00.000+0000'),
+        phone: '89005551212',
+        email: 'aaa@mail.ru',
       },
     ]);
   },

@@ -16,6 +16,7 @@ const initialState: State = {
     phone: '',
     email: '',
   },
+  filterLaw: []
 };
 
 export const loadLawyers = createAsyncThunk('lawyers/loadLawyers', async () => {
@@ -40,7 +41,13 @@ export const loadOneLawyer = createAsyncThunk(
 const lawyersSlice = createSlice({
   name: 'lawyers',
   initialState,
-  reducers: {},
+  reducers: {
+    // filterLawyers: (state, action) => {
+    //   state.lawyersList = state.lawyersList.filter(
+    //     (el) => el.speciality === action.payload
+    //   );
+    // },
+  },
   extraReducers: (builder) => {
     builder.addCase(loadLawyers.fulfilled, (state, action) => {
       state.lawyersList = action.payload;
@@ -50,3 +57,4 @@ const lawyersSlice = createSlice({
 
 
 export default lawyersSlice.reducer;
+// export const { filterLawyers } = lawyersSlice.actions;

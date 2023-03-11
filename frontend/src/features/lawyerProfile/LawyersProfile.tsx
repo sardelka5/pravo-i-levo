@@ -16,6 +16,8 @@ function LawyerProfile(): JSX.Element {
 
   const oneLawyer = useSelector((state: RootState) => state.lawyers.oneLawyer);
 
+  console.log(oneLawyer);
+
   useEffect(() => {
     dispatch(loadFeedback());
     dispatch(loadOneLawyer(Number(id)));
@@ -25,7 +27,7 @@ function LawyerProfile(): JSX.Element {
     <Container>
       <Container>Отзывы:</Container>
       {feedbackList.map((el) => (
-        <div>{el.content}</div>
+        <div key={el.id}>{el.content}</div>
       ))}
       {oneLawyer.full_name}
     </Container>

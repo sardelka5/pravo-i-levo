@@ -1,13 +1,9 @@
 const router = require('express').Router();
-
 const { Feedback } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   const feedback = await Feedback.findAll({
-    order: [
-      ['createdAt', 'DESC'],
-      ['id', 'DESC'],
-    ],
+    where: { lawyer_id: req.params.id },
   });
 
   res.json(feedback);

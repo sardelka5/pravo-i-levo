@@ -19,7 +19,7 @@ function Footer(): JSX.Element {
   );
 
   return (
-    <Container className="container-footer">
+    <Container id="law-ancor" className="container-footer">
       <Image className="footer-img" src="/SVG/footer.svg" alt="svg" />
       <Container className="container-footer-colunm">
         <Card.Text className="footer-text">
@@ -28,8 +28,13 @@ function Footer(): JSX.Element {
         </Card.Text>
         <Image src="/SVG/icons-contacts.svg" />
       </Container>
-      <Container className="container-footer-colunm">
-        <Button className="button-blue" onClick={handleClick}>
+      <Container className="container-flex-colunm">
+        <Button
+          className="button-blue"
+          onClick={handleClick}
+          aria-controls="example-collapse-text"
+          aria-expanded={showForm}
+        >
           Заполнить анкету
         </Button>
         {showForm && (

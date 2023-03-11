@@ -4,17 +4,22 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
+import FormEvent from '../event/FormEvent';
 
 function AdminEvents(): JSX.Element {
   const dispatch = useAppDispatch();
   const admin = useSelector((state: RootState) => state.admin.admin);
-  console.log(admin);
 
   if (admin.email === '') {
     return <Container>Ne admin</Container>;
-  } else {
-    return <Container>Admin</Container>;
   }
+
+  return (
+    <Container>
+      {' '}
+      <FormEvent />
+    </Container>
+  );
 }
 
 export default AdminEvents;

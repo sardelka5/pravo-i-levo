@@ -10,7 +10,10 @@ const app = express();
 
 expressConfig(app);
 
+const eventRoute = require("./routes/event.route");
+
 // подключаем маршрутизацию
+app.use('/api/event', eventRoute);
 app.use('/api/auth', authRouter);
 app.use('/api/lawyers', lawyerRoute);
 app.use('/api/feedback', feedbackRouter);

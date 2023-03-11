@@ -1,4 +1,5 @@
 type Feedback = {
+  id: number;
   lawyer_id: number;
   accepted: boolean;
   content: string;

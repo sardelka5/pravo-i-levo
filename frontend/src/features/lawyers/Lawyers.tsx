@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import { loadLawyers } from './lawyerSlice';
@@ -16,11 +17,11 @@ function Lawyers(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div>
+    <Container className="flex-law">
       {lawyersList.map((lawyer) => (
         <OneLawyers key={lawyer.id} oneLawyers={lawyer} />
       ))}
-    </div>
+    </Container>
   );
 }
 

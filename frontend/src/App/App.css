@@ -1,6 +1,24 @@
+@font-face {
+  font-family: 'NTSomic';
+  src: url('../../public/fonts/NTSomic-Regular.ttf');
+}
+@font-face {
+  font-family: 'Bluecurve';
+  src: url('../../public/fonts/Bluecurve-Regular.ttf');
+}
+@font-face {
+  font-family: 'Bluecurve-Light';
+  src: url('../../public/fonts/Bluecurve-Light.ttf');
+}
 * {
   font-family: 'Montserrat';
   text-align: justify;
+}
+.pravo-i-levo {
+  font-family: 'Bluecurve';
+}
+.pravo-i-levo-light {
+  font-family: 'Bluecurve-Light';
 }
 #root {
   max-width: 100%;
@@ -14,6 +32,14 @@
   display: flex;
   justify-content: end;
 }
+.header > * {
+  font-size: 22px;
+}
+.logo-font {
+  font-weight: 500;
+  color: black;
+  font-family: 'Bluecurve-Light';
+}
 .header-main {
   max-width: 100%;
 }
@@ -26,6 +52,7 @@
 .header-text-main {
   font-weight: 500;
   font-size: 60px;
+  margin-bottom: 100px;
 }
 .container-footer {
   background-color: #e5e5e5 !important;

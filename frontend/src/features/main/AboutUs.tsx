@@ -5,10 +5,8 @@ function AboutUs(): JSX.Element {
   return (
     <Container className="container-header">
       <Container className="container-flex-row">
-        <Card.Text className="header-text-main">
+        <Card.Text className="header-text-main pravo-i-levo">
           ПРАВО. И ЛЕВО.
-          <br />
-          <br />
         </Card.Text>
         <Card.Text className="header-text">
           Правовой научпоп, где о праве рассказывают доступным языком.

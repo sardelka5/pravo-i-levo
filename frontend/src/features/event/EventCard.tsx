@@ -39,7 +39,7 @@ function EventCard(): JSX.Element {
         <h1>{event.title}</h1>
         <Container className="imgDesc">
           <img src={event?.photo} alt="eventPhoto" />
-          {/* <p className="evenDate">{event.date}</p> */}
+          <p className="evenDate">{event.date.slice(0, 10)}</p>
           <p className="evenAdress">{event.address}</p>
           <p className="eventInfo">{event.description}</p>
         </Container>

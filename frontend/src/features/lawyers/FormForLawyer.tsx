@@ -7,12 +7,12 @@ import { loadTg } from './lawyerSlice';
 function FormForLawyer({
   setShowForm,
   onSubmitForm,
- 
 }: {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
   onSubmitForm: React.FormEventHandler<HTMLFormElement>;
-  
 }): JSX.Element {
+  const [showError, setShowError] = useState(false);
+
   const [inputName, setInputName] = useState('');
   const [inputSpeciality, setInputSpeciality] = useState('');
   const [inputPhone, setInputPhone] = useState('');
@@ -39,21 +39,32 @@ function FormForLawyer({
     setInputAbout(e.target.value);
   };
 
-  const telegram: React.FormEventHandler<HTMLFormElement> = (): void => {
-    dispatch(
-      loadTg({
-        inputName,
-        inputSpeciality,
-        inputPhone,
-        inputAbout,
-        inputEmail,
-      }),
-    );
-    setShowForm((p: boolean) => !p);
+  const telegram: React.FormEventHandler<HTMLFormElement> = (event): void => {
+    event.preventDefault();
+    if (
+      inputName &&
+      inputSpeciality &&
+      inputPhone &&
+      inputAbout &&
+      inputEmail
+    ) {
+      dispatch(
+        loadTg({
+          inputName,
+          inputSpeciality,
+          inputPhone,
+          inputAbout,
+          inputEmail,
+        }),
+      );
+      setShowForm((p) => !p);
+    } else {
+      setShowError(true);
+    }
   };
 
   return (
-    <Form onSubmit={telegram}>
+    <Form className="form-for-lawyer" onSubmit={telegram}>
       <Form.Control
         value={inputName}
         onChange={handlerName}
@@ -89,7 +100,8 @@ function FormForLawyer({
         as="textarea"
         rows={3}
       />
-      <Button className="button-blue" type="submit" >
+      {showError && <div>Заполните все поля!</div>}
+      <Button className="button-blue" type="submit">
         Отправить анкету
       </Button>
     </Form>

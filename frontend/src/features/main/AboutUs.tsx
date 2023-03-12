@@ -17,8 +17,7 @@ function AboutUs(): JSX.Element {
           Лекции о праве и сервис по поиску специалиста.
         </Card.Text>
       </Container>
-      <Image src="/SVG/header.svg" alt="svg" />
-      <Image src="/SVG/circles.svg" alt="svg" className="circles" />
+      <Image className="img-head" src="/SVG/header.svg" alt="svg" />
     </Container>
   );
 }

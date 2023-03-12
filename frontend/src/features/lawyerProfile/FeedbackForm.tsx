@@ -68,13 +68,16 @@ function FeedbackForm(): JSX.Element {
   return (
     <Container>
       {showForm ? (
-        <Form onSubmit={handlerSubmit}>
+        <Form className="feedback-form" onSubmit={handlerSubmit}>
+          <h5>Оставьте свой отзыв здесь:</h5>
           <Form.Control
             value={feedbackName}
             onChange={handlerName}
             type="text"
             placeholder="ФИО"
           />
+          <Form.Label>Дата визита</Form.Label>
+
           <Form.Control
             value={inputDate}
             onChange={handlerDate}
@@ -106,7 +109,10 @@ function FeedbackForm(): JSX.Element {
           </Button>
         </Form>
       ) : (
-        <div>Ваш отзыв появится на странице после проверки админстратором</div>
+        <h4>
+          Спасибо за Ваш отзыв! <br />
+          Он появится на странице после проверки админстратором.
+        </h4>
       )}
     </Container>
   );

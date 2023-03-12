@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { NavLink } from 'react-router-dom';
 import Lawyer from './Type/Lawyer';
 
@@ -10,17 +9,19 @@ export default function OneLawyers({
   oneLawyers: Lawyer;
 }): JSX.Element {
   return (
-    <NavLink to={`/lawyers/${oneLawyers.id}`} style={{ width: '18rem' }}>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={oneLawyers.photo} />
-        <Card.Body>
+    <Card className="all-lawyers-cards">
+      <NavLink to={`/lawyers/${oneLawyers.id}`}>
+        <div className="all-lawyers-cards-img">
+          <Card.Img src={oneLawyers.photo} />
+        </div>
+        <Card.Body className="card-lawyer-small">
           <Card.Title>{oneLawyers.full_name}</Card.Title>
+          <Card.Text>Направления работы: {oneLawyers.speciality}</Card.Text>
+          <Card.Text>
+            Цена за час от <b>{oneLawyers.price}</b> руб.
+          </Card.Text>
         </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>{oneLawyers.experience}</ListGroup.Item>
-          <ListGroup.Item>{oneLawyers.price}</ListGroup.Item>
-        </ListGroup>
-      </Card>
-    </NavLink>
+      </NavLink>
+    </Card>
   );
 }

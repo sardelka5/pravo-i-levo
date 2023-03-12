@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useNavigate } from 'react-router-dom';
 import { Autoplay, Pagination } from 'swiper';
+import { Container, Image } from 'react-bootstrap';
 import { RootState, useAppDispatch } from '../../../store';
 import { loadEvents } from '../../event/eventSlice';
 import 'swiper/css';
@@ -17,7 +18,10 @@ function Carousel(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const sortedEvents = useMemo(
-    () => [...events].filter((event) => new Date(event.date) > new Date()),
+    () =>
+      [...events]
+        .filter((event) => new Date(event.date) > new Date())
+        .sort((a, b) => +new Date(a.date) - +new Date(b.date)),
     [events],
   );
 
@@ -26,34 +30,45 @@ function Carousel(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <Swiper
-      spaceBetween={30}
-      centeredSlides
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Autoplay, Pagination]}
-      className="mySwiper"
-    >
-      {sortedEvents.map((event) => (
-        <SwiperSlide
-          className="carousel-item active"
-          onClick={() => nav(`events/${event.id}`)}
-        >
-          <img
-            className="d-block w-100"
-            src={`${event.photo}`}
-            alt="First slide"
-          />
-          <h3>{`${event.title}`}</h3>
-          <p>{`${event.date.slice(0,10)}`}</p>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <Container className="events-container">
+      <Image src="/SVG/events-header.svg" />
+      <Swiper
+        spaceBetween={30}
+        centeredSlides
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination]}
+        className="mySwiper"
+      >
+        {sortedEvents.map((event) => (
+          <SwiperSlide
+            key={event.id}
+            className="carousel-item active"
+            onClick={() => nav(`events/${event.id}`)}
+          >
+            <div className="swiper-card">
+              <img
+                className="swiper-card-img"
+                src={`${event.photo}`}
+                alt="First slide"
+              />
+              <div className="inner-swiper-card">
+                <h2>{event.title}</h2>
+                <br />
+                <h5>Адрес: {event.address}</h5>
+                <br />
+                <h5>Дата проведения: {event.date.slice(0, 10)}</h5>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Container>
   );
 }
 

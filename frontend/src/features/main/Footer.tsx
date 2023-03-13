@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { Container, Image, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import FormForLawyer from '../lawyers/FormForLawyer';
 import * as api from '../lawyers/api';
-import { Link } from 'react-router-dom';
 
 function Footer(): JSX.Element {
   const [showForm, setShowForm] = useState(false);

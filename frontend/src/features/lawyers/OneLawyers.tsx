@@ -15,7 +15,9 @@ export default function OneLawyers({
           <Card.Img src={oneLawyers.photo} />
         </div>
         <Card.Body className="card-lawyer-small">
-          <Card.Title>{oneLawyers.full_name}</Card.Title>
+          <Card.Title className="all-lawyers-title">
+            {oneLawyers.full_name}
+          </Card.Title>
           <Card.Text>Направления работы: {oneLawyers.speciality}</Card.Text>
           <Card.Text>
             Цена за час от <b>{oneLawyers.price}</b> руб.

@@ -10,11 +10,16 @@
   margin-bottom: 100px;
 }
 .all-lawyers-cards {
-  width: 500px;
-  height: 500px;
+  padding: 30px 10px;
+  width: 35rem;
+  height: 35rem;
   margin: 100px 50px 0 50px;
   border-radius: 30px;
+  font-size: 22px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.all-lawyers-title {
+  font-size: 24px;
 }
 .all-lawyers-cards:hover {
   transition: 1s;
@@ -23,8 +28,11 @@
 .all-lawyers-cards-img {
   overflow: hidden;
   object-fit: cover;
-  /* width: 350px;
-  height: 350px; */
+  border-radius: 80px 0px;
+  width: 90%;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .card-lawyer-small > * {
   color: black;

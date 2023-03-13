@@ -26,7 +26,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getUser.fulfilled, (state, action) => {
-        state.admin.email = action.payload.admin.email;
+        // state.admin.email = action.payload.admin.email;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.admin.email = action.payload.email;

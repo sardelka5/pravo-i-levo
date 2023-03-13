@@ -1,10 +1,6 @@
 import { Anceta } from "./Type/Anceta";
 import Lawyer  from "./Type/Lawyer";
 
-export const loadLawyers = async (): Promise<Lawyer[]> => {
-    const res = await fetch('/api/lawyers');
-    return res.json();
-}
 
 export const tgLawyers = async (anceta: Anceta): Promise<void> => {
 

@@ -2,11 +2,7 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Lawyer extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of DataTypes lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+
     static associate({ Feedback }) {
       Lawyer.hasMany(Feedback, { foreignKey: 'lawyer_id' });
     }

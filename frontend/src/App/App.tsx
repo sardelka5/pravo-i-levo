@@ -18,12 +18,14 @@ import LayoutAdmin from './LayoutAdmin';
 import { loadLawyers } from '../features/lawyers/lawyerSlice';
 import { useAppDispatch } from '../store';
 import { getUser } from '../features/admin/authSlice';
+import { loadTarifs } from '../features/tarif/tarifSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(loadEvents());
+    dispatch(loadTarifs());
     dispatch(loadLawyers());
     dispatch(getUser());
   }, [dispatch]);

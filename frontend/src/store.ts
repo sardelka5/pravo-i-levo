@@ -4,6 +4,7 @@ import adminReducer from './features/admin/authSlice';
 import feedbackReducer from './features/lawyerProfile/feedbackSlice';
 import lawyersReducer from './features/lawyers/lawyerSlice';
 import eventSlice from './features/event/eventSlice';
+import tarifSlice from './features/tarif/tarifSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     feedback: feedbackReducer,
     lawyers: lawyersReducer,
     eventState: eventSlice,
+    tarifState: tarifSlice,
   },
 });
 

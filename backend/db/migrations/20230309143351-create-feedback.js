@@ -33,6 +33,14 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
+      phone: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      email: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

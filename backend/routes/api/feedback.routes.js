@@ -1,16 +1,34 @@
 const router = require('express').Router();
-
 const { Feedback } = require('../../db/models');
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
   const feedback = await Feedback.findAll({
-    order: [
-      ['createdAt', 'DESC'],
-      ['id', 'DESC'],
-    ],
+    where: { lawyer_id: req.params.id, accepted: true },
+  });
+  res.json(feedback);
+});
+
+router.post('/', async (req, res) => {
+  const {
+    feedbackName,
+    inputDate,
+    inputPhone,
+    inputEmail,
+    inputAboutFeedback,
+    id,
+  } = req.body;
+
+  const fb = await Feedback.create({
+    lawyer_id: id,
+    accepted: false,
+    content: inputAboutFeedback,
+    full_name: feedbackName,
+    date: new Date(inputDate),
+    phone: inputPhone,
+    email: inputEmail,
   });
 
-  res.json(feedback);
+  return res.status(201).json(fb);
 });
 
 module.exports = router;

@@ -20,7 +20,7 @@ function EventCard(): JSX.Element {
             <div className="imgDesc">
               <img src={event.photo} alt="eventPhoto" />
               <div className="evenDate">{event.date}</div>
-              <div className="evenAdress">{event.address}</div>
+              <div className="evenAddress">{event.address}</div>
               <div className="eventInfo">{event.description}</div>
             </div>
           </div>

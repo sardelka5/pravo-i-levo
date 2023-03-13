@@ -4,14 +4,18 @@ import adminReducer from './features/admin/authSlice';
 import feedbackReducer from './features/lawyerProfile/feedbackSlice';
 import lawyersReducer from './features/lawyers/lawyerSlice';
 import eventSlice from './features/event/eventSlice';
+import eventSliceAdmin from './features/adminEvents/eventSlice';
 
 const store = configureStore({
   reducer: {
     admin: adminReducer,
+    eventAdmin: eventSliceAdmin,
     feedback: feedbackReducer,
     lawyers: lawyersReducer,
     eventState: eventSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export type AppDispatch = typeof store.dispatch;

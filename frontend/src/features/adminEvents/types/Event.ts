@@ -1,7 +1,7 @@
 type Event = {
   id: number;
   date: Date;
-  addres: string;
+  address: string;
   title: string;
   description: string;
   photo: string;

@@ -1,12 +1,13 @@
 export type Event = {
-    id:number;
-    date: string;
-    address:string;
-    title:string;
-    description:string;
-    photo:string;
+  id: number;
+  date: '';
+  address: string;
+  title: string;
+  description: string;
+  photo: string;
 };
- export type State = {
-    events: Event[];
-    error: undefined|string;
- }
+export type State = {
+  events: Event[];
+  oneEvent: Event;
+  error: undefined | string;
+};

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
-import FormEvent from '../event/FormEvent';
+import FormEvent from './FormEvent';
 
 function AdminEvents(): JSX.Element {
   const dispatch = useAppDispatch();

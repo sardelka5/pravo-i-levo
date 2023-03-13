@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   YMaps,
   Map,
@@ -87,10 +88,6 @@ function EventCard(): JSX.Element {
         )}
         </Container>
       </Container>
-
-      <Button type="button" className="btnBack" onClick={() => nav(-1)}>
-        Назад
-      </Button>
     </Container>
   );
 }

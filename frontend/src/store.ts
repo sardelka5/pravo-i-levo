@@ -5,15 +5,19 @@ import feedbackReducer from './features/lawyerProfile/feedbackSlice';
 import lawyersReducer from './features/lawyers/lawyerSlice';
 import eventSlice from './features/event/eventSlice';
 import tarifSlice from './features/tarif/tarifSlice';
+import eventSliceAdmin from './features/adminEvents/eventSlice';
 
 const store = configureStore({
   reducer: {
     admin: adminReducer,
+    eventAdmin: eventSliceAdmin,
     feedback: feedbackReducer,
     lawyers: lawyersReducer,
     eventState: eventSlice,
     tarifState: tarifSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export type AppDispatch = typeof store.dispatch;

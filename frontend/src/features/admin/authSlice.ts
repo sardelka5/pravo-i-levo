@@ -5,7 +5,7 @@ import AuthAdmin from './types/AuthAdmin';
 
 const initialState: AuthAdmin = {
   authChecked: false,
-  admin: { email: '', password: '' },
+  admin: undefined,
 };
 
 export const getUser = createAsyncThunk('auth/admin', () => apiAuth.admin());
@@ -26,10 +26,11 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getUser.fulfilled, (state, action) => {
-        // state.admin.email = action.payload.admin.email;
+        state.admin.email = action.payload.admin.email;
+        state.admin = action.payload.admin;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.admin.email = action.payload.email;
+        state.admin = action.payload;
       })
 
       .addCase(logout.fulfilled, (state) => {

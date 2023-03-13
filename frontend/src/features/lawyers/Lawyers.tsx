@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import {  useSelector } from 'react-redux';
 import { Container, Form } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import { loadLawyers } from './lawyerSlice';
 import OneLawyers from './OneLawyers';

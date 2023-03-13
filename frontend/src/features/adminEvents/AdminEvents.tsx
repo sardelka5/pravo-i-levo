@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useSelector } from 'react-redux';
+import assert from 'assert';
 import { RootState, useAppDispatch } from '../../store';
 import FormEvent from './FormEvent';
 import { loadEvent, removeEvent, createEvent } from './eventSlice';
 import AdminEventCard from './AdminEventCard';
-import EventAdd from './types/State';
 
 function AdminEvents(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -23,16 +23,24 @@ function AdminEvents(): JSX.Element {
   }, [dispatch]);
 
   const admin = useSelector((state: RootState) => state.admin.admin);
-  const events = useSelector((state: RootState) => state.eventAdmin.eventList);
+  const events = useSelector((state: RootState) => state.eventList.eventList);
 
-  const handleEventRemove = (id: number): void => {
-    dispatch(removeEvent(id));
-  };
+  const handleEventRemove = useCallback(
+    (id: number): void => {
+      dispatch(removeEvent(id));
+    },
+    [dispatch],
+  );
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleEventChange = (id: number) => {
-    setCard(events.find((el) => el.id === id)!);
-  };
+  const handleEventChange = useCallback(
+    (id: number) => {
+      const event = events.find((el) => el.id === id);
+      assert(event);
+      setCard(event);
+    },
+    [events],
+  );
 
   if (!admin) {
     return <Container>Ne admin</Container>;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import type Event from './types/Event';
@@ -14,13 +14,13 @@ function AdminEventCard({
   onRemove,
   onChange,
 }: AdminEventCardProps): JSX.Element {
-  const handleRemove: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const handleRemove: React.MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     onRemove(card.id);
-  };
+  }, [card.id, onRemove]);
 
-  const handleChange: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const handleChange: React.MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     onChange(card.id);
-  };
+  }, [card.id, onChange]);
 
   return (
     <Card style={{ width: '18rem' }}>
@@ -43,4 +43,4 @@ function AdminEventCard({
   );
 }
 
-export default AdminEventCard;
+export default memo(AdminEventCard);

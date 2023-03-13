@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import State from './types/State';
-import Event from './types/Event';
 import * as apiEvent from './apiEvent';
 import EventAdd from './types/EventAdd';
 
 const initialState: State = {
   eventList: [],
-  eventChange: {
+  oneEvent: {
     id: 0,
     date: new Date(),
     address: '',
@@ -14,31 +13,31 @@ const initialState: State = {
     description: '',
     photo: '',
   },
-  eventAdd: {
-    date: new Date(),
-    address: '',
-    title: '',
-    description: '',
-    photo: '',
-  },
-  eventRemove: { id: 0 },
 };
 
 export const loadEvent = createAsyncThunk('event/loadEvent', () =>
-  apiEvent.loadNotes(),
+  apiEvent.loadEvents(),
+);
+
+export const loadOneEvent = createAsyncThunk(
+  'lawyers/loadOneEvent',
+  async (id: number) => {
+    const oneEvent = await apiEvent.loadOneEvent(id);
+    return oneEvent;
+  },
 );
 
 export const removeEvent = createAsyncThunk(
   'event/removeEvent',
   async (id: number) => {
-    await apiEvent.removeNote(id);
+    await apiEvent.removeEvents(id);
     return { id };
   },
 );
 
 export const createEvent = createAsyncThunk(
   'event/createEvent',
-  (oneEvent: EventAdd) => apiEvent.createNote(oneEvent),
+  (oneEvent: EventAdd) => apiEvent.createEvents(oneEvent),
 );
 
 const eventSliceAdmin = createSlice({
@@ -58,6 +57,9 @@ const eventSliceAdmin = createSlice({
       })
       .addCase(createEvent.fulfilled, (state, action) => {
         state.eventList.push(action.payload);
+      })
+      .addCase(loadOneEvent.fulfilled, (state, action) => {
+        state.oneEvent = action.payload;
       });
   },
 });

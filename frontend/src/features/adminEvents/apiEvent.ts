@@ -1,25 +1,30 @@
 import type Event from './types/Event';
 import EventAdd from './types/EventAdd';
 
-export async function loadNotes(): Promise<Event[]> {
-  const res = await fetch('/api/event');
+export async function loadEvents(): Promise<Event[]> {
+  const res = await fetch('/api/events');
   return res.json();
 }
 
-export async function removeNote(id: number): Promise<void> {
-  const res = await fetch(`/api/event/${id}`, { method: 'DELETE' });
+export const loadOneEvent = async (id: number): Promise<Event> => {
+  const res = await fetch(`/api/events/${id}`);
+  return res.json();
+};
+
+export async function removeEvents(id: number): Promise<void> {
+  const res = await fetch(`/api/events/${id}`, { method: 'DELETE' });
   return res.json();
 }
 
-export async function createNote(oneEvent: EventAdd): Promise<Event> {
+export async function createEvents(oneEvent: EventAdd): Promise<Event> {
   const formData = new FormData();
   formData.append('photo', oneEvent.photo);
   formData.append('date', oneEvent.date.toString());
-  formData.append('addres', oneEvent.address);
+  formData.append('address', oneEvent.address);
   formData.append('description', oneEvent.description);
   formData.append('title', oneEvent.title);
 
-  const res = await fetch('/api/event', {
+  const res = await fetch('/api/events', {
     method: 'POST',
     body: formData,
     // headers: {
@@ -31,8 +36,8 @@ export async function createNote(oneEvent: EventAdd): Promise<Event> {
   return res.json();
 }
 
-export async function updateNote(oneEvent: Event): Promise<void> {
-  const res = await fetch(`/api/notes/${oneEvent.id}`, {
+export async function updateEvents(oneEvent: Event): Promise<void> {
+  const res = await fetch(`/api/events/${oneEvent.id}`, {
     method: 'PUT',
     body: JSON.stringify({ oneEvent }),
     headers: { 'Content-Type': 'application/json' },

@@ -5,8 +5,8 @@ const authRouter = require('./routes/api/auth.routes');
 const feedbackRouter = require('./routes/api/feedback.routes');
 const lawyerRoute = require('./routes/api/lawyer.route');
 const apiTgRoute = require('./routes/api/tg.routes');
-const eventRoute = require('./routes/event.route');
-const tarifRoute = require('./routes/tarif.route');
+const eventRoute = require('./routes/api/event.route');
+const tarifRoute = require('./routes/api/tarif.route');
 
 const app = express();
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
-import Lawyer from './Type/Lawyer';
+import Lawyer from './types/Lawyer';
 
 export default function OneLawyers({
   oneLawyers,

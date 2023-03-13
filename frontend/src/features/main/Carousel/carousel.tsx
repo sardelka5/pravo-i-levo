@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { Autoplay, Pagination } from 'swiper';
 import { Container, Image } from 'react-bootstrap';
 import { RootState, useAppDispatch } from '../../../store';
-import { loadEvents } from '../../event/eventSlice';
+import { loadEvent } from '../../adminEvents/eventSlice';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './style.css';
 
 function Carousel(): JSX.Element {
-  const { events } = useSelector((store: RootState) => store.eventState);
+  const events = useSelector((store: RootState) => store.eventList.eventList);
 
   const nav = useNavigate();
 
@@ -26,7 +26,7 @@ function Carousel(): JSX.Element {
   );
 
   useEffect(() => {
-    dispatch(loadEvents());
+    dispatch(loadEvent());
   }, [dispatch]);
 
   return (
@@ -62,7 +62,7 @@ function Carousel(): JSX.Element {
                 <br />
                 <h5>Адрес: {event.address}</h5>
                 <br />
-                <h5>Дата проведения: {event.date.slice(0, 10)}</h5>
+                <h5>Дата проведения: {event.date.toString().slice(0, 10)}</h5>
               </div>
             </div>
           </SwiperSlide>

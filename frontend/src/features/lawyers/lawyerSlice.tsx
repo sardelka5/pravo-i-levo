@@ -1,22 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import State from './Type/State';
+import State from './types/State';
 import * as api from './api';
-import { ApplicationForm } from './Type/ApplicationForm';
+import { ApplicationForm } from './types/ApplicationForm';
 
 const initialState: State = {
   lawyersList: [],
-  oneLawyer: {
-    id: 0,
-    full_name: '',
-    price: 0,
-    description: '',
-    speciality: '',
-    experience: 0,
-    photo: '',
-    phone: '',
-    email: '',
-  },
-  filterLaw: []
+  filterLaw: [],
 };
 
 export const loadLawyers = createAsyncThunk('lawyers/loadLawyers', async () => {

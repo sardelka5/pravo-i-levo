@@ -1,5 +1,5 @@
-import { ApplicationForm } from './Type/ApplicationForm';
-import Lawyer from './Type/Lawyer';
+import { ApplicationForm } from './types/ApplicationForm';
+import Lawyer from './types/Lawyer';
 
 export const tgLawyers = async (
   applicationForm: ApplicationForm,
